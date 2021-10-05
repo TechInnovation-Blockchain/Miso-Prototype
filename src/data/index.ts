@@ -1,3 +1,3 @@
-import auctionCardsData from "./auctionCards.data";
+import overviewAuctionCards from "./overviewAuctionCards.data";
 
-export { auctionCardsData };
+export { overviewAuctionCards };

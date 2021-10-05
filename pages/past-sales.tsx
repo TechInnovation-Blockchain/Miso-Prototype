@@ -1,12 +1,17 @@
 import Navbar from "../src/components/layout/Navbar";
+import SalesDetailsCard from "../src/components/past-sales/SalesDetailsCard";
 
 const PastSales = () => {
   const pageName = "PastSales";
 
   return (
-    <div className="w-screen h-screen flex justify-center items-center">
+    <div>
       <Navbar title={pageName} />
-      <h1 className="text-5xl font-bold">MISO-Prototype | {pageName}</h1>
+      <SalesDetailsCard />
+
+      {/* <div className="w-screen h-screen flex justify-center items-center">
+        <h1 className="text-5xl font-bold">MISO-Prototype | {pageName}</h1>
+      </div> */}
     </div>
   );
 };

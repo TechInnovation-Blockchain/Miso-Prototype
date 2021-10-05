@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  background: #121319;
+}
 /* html,
 body {
   padding: 0;

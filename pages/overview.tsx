@@ -1,13 +1,35 @@
-import Navbar from "../src/components/layout/Navbar";
+import { useEffect, useState } from "react";
+import AuctionCard from "../src/components/common/AuctionCard";
+import Layout from "../src/components/layout";
+import auctionCardsData from "../src/data/overviewAuctionCards.data";
+// import Sidebar from "../src/components/layout/Sidebar";
 
 const Overview = () => {
-  const pageName = "Overview";
+  // const [overviewData, setOverviewData] = useState<any>();
+
+  // useEffect(() => {
+  //   fetch(`/api/overview-data`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setOverviewData(data);
+  //     });
+  // }, []);
+
+  // console.log(overviewData)
 
   return (
-    <div className="w-screen h-screen flex justify-center items-center">
-      <Navbar title={pageName} />
-      <h1 className="text-5xl font-bold">MISO-Prototype | {pageName}</h1>
-    </div>
+    <>
+      <Layout />
+      {/* <Sidebar> */}
+      <div>
+        {auctionCardsData?.map((item: any) => (
+          <div key={item.id} style={{ maxWidth: "650px" }}>
+            <AuctionCard data={item} />
+          </div>
+        ))}
+      </div>
+      {/* </Sidebar> */}
+    </>
   );
 };
 
