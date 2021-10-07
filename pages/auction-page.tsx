@@ -1,13 +1,28 @@
-import Navbar from "../src/components/layout/Navbar";
+import Layout from "../src/components/layout";
+import CommitAdd from "../src/components/auction-page/CommitAdd";
+import AuctionCard from "../src/components/common/AuctionCard";
+import CommitTable from "../src/components/auction-page/CommitTable";
+
+// data
+import auctionCardsData from "../src/data/overviewAuctionCards.data";
 
 const AuctionPage = () => {
-  const pageName = "AuctionPage";
-
   return (
-    <div className="w-screen h-screen flex justify-center items-center">
-      <Navbar title={pageName} />
-      <h1 className="text-5xl font-bold">MISO-Prototype | {pageName}</h1>
-    </div>
+    <Layout>
+      <div style={{ display: "flex" }}>
+        <section>
+          <div style={{ width: "530px" }}>
+            <AuctionCard data={auctionCardsData[0]} />
+          </div>
+        </section>
+
+        <section className="w-full flex flex-col items-center">
+          <CommitAdd />
+        </section>
+      </div>
+
+      <CommitTable />
+    </Layout>
   );
 };
 

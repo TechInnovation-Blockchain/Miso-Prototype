@@ -1,0 +1,21 @@
+.active {
+  color: #111;
+}
+.item {
+  color: rgb(168, 168, 168);
+}
+.test {
+  outline: none;
+}
+.page__btn {
+  max-width: 120px;
+  display: flex;
+  overflow-x: auto;
+}
+.page__btn::-webkit-scrollbar {
+  display: none;
+}
+.page__btn {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const file = "/assets/icons/file.svg";
 const book = "/assets/icons/book.svg";
 const copy = "/assets/icons/copy.svg";
@@ -26,11 +28,11 @@ const AuctionCard = ({ data }: any) => {
   return (
     <>
       <div
-        style={{ border: "1px solid gray" }}
+        style={{ border: "1px solid gray", background: "#121319" }}
         className="pb-5 m-1 text-white rounded-lg"
       >
         <div>
-          <img
+          <Image
             className="w-full rounded-t-lg"
             src={image}
             alt="wrapped_ncg"
@@ -39,12 +41,12 @@ const AuctionCard = ({ data }: any) => {
           />
         </div>
         <div>
-          <img
+          <Image
             className="-mt-6 ml-4"
             src={subImage}
             alt="wrapped_ncg"
-            height="40"
-            width="40"
+            height={40}
+            width={40}
           />
         </div>
         <section className="ml-4 mr-4 ">
@@ -67,12 +69,12 @@ const AuctionCard = ({ data }: any) => {
           <div className="flex">
             <div className="w-3/12 text-left flex test-xs">
               <small>{auction}</small>
-              <img
+              <Image
                 className="ml-1.5"
                 src={spoon}
                 alt="spoon"
-                height="15"
-                width="15"
+                height={15}
+                width={15}
               />
             </div>
             <div className="w-3/6 text-center test-xs">
@@ -86,40 +88,40 @@ const AuctionCard = ({ data }: any) => {
             <small className="test-xs">{description}</small>
           </div>
           <div className="flex">
-            <img
+            <Image
               className="mr-1.5"
               src={globe}
               alt="globe"
-              height="12"
-              width="12"
+              height={12}
+              width={12}
             />
-            <img
+            <Image
               className="mr-1.5"
               src={file}
               alt="file"
-              height="12"
-              width="12"
+              height={12}
+              width={12}
             />
-            <img
+            <Image
               className="mr-1.5"
               src={twitter}
               alt="twitter"
-              height="12"
-              width="12"
+              height={12}
+              width={12}
             />
-            <img
+            <Image
               className="mr-1.5"
               src={github}
               alt="github"
-              height="12"
-              width="12"
+              height={12}
+              width={12}
             />
-            <img
+            <Image
               className="mr-1.5"
               src={book}
               alt="book"
-              height="12"
-              width="12"
+              height={12}
+              width={12}
             />
           </div>
           <div className="flex mt-2.5">
@@ -156,7 +158,7 @@ const AuctionCard = ({ data }: any) => {
               <br />
               <div className="flex justify-end">
                 <small>{token}</small>
-                <img src={copy} alt="copy" height="12" width="12" />
+                <Image src={copy} alt="copy" height={12} width={12} />
               </div>
             </div>
           </div>

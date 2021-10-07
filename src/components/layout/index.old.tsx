@@ -91,6 +91,8 @@ const Layout = ({ children }: LayoutProps) => {
           </Dialog>
         </Transition.Root>
 
+        {/* PC sidebar */}
+
         <header className="relative">
           <nav
             aria-label="Top"
@@ -127,6 +129,9 @@ const Layout = ({ children }: LayoutProps) => {
           </nav>
         </header>
       </div>
+
+      {/* Main content */}
+      {/* <Sidebar>{children}</Sidebar> */}
 
       <div>
         <div className={styles.sidebar}>

@@ -10,7 +10,7 @@ const Navbar = ({ title }: NavbarProps) => {
           name="description"
           content="MISO-Prototype || https://miso-prototype.vercel.app"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.svg" />
       </Head>
 
       <main>{/* navbar items */}</main>
