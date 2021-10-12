@@ -6,10 +6,13 @@ import LiveGraph from "../src/components/auction-page/LiveGraph";
 
 // data
 import auctionCardsData from "../src/data/overviewAuctionCards.data";
+import Header from "../src/components/common/Header";
 
 const AuctionPage = () => {
   return (
     <Layout title="Auction Page">
+      <Header />
+      
       <div style={{ display: "flex" }}>
         <section>
           <div style={{ width: "530px" }}>
@@ -24,7 +27,7 @@ const AuctionPage = () => {
       </div>
 
       <div className="py-4">
-      <CommitTable />
+        <CommitTable />
       </div>
     </Layout>
   );
