@@ -1,13 +1,20 @@
-import Navbar from "../src/components/layout/Navbar";
+import Layout from "../src/components/layout";
+import AuctionCard from "../src/components/common/AuctionCard";
+
+// data
+import auctionCardsData from "../src/data/overviewAuctionCards.data";
 
 const LiveAuctions = () => {
-  const pageName = "LiveAuctions";
-
   return (
-    <div className="w-screen h-screen flex justify-center items-center">
-      <Navbar title={pageName} />
-      <h1 className="text-5xl font-bold">MISO-Prototype | {pageName}</h1>
-    </div>
+    <Layout title="Live Auctions">
+      <section className="flex">
+        {auctionCardsData?.map((data, index) => (
+          <div style={{ width: "530px" }} key={index}>
+            <AuctionCard data={data} />
+          </div>
+        ))}
+      </section>
+    </Layout>
   );
 };
 

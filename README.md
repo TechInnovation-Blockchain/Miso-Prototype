@@ -1,8 +1,6 @@
-# [MISO-Prototype](https://miso-prototype.vercel.app)
+# [MISO-Prototype](https://miso-prototype-web.vercel.app)
 
-Live link: [https://miso-prototype.vercel.app](https://miso-prototype.vercel.app)
-
-Figma design: [https://www.figma.com/file/bLsll6Ejs737B4Aeusrd6I/new-prototype?node-id=0%3A1](https://www.figma.com/file/bLsll6Ejs737B4Aeusrd6I/new-prototype?node-id=0%3A1)
+Live link: [https://miso-prototype-web.vercel.app](https://miso-prototype-web.vercel.app)
 
 ## Commands
 
@@ -12,6 +10,14 @@ Figma design: [https://www.figma.com/file/bLsll6Ejs737B4Aeusrd6I/new-prototype?n
     npm run dev
     # or
     yarn dev
+    ```
+
+- Run the production server:
+
+    ```bash
+    npm run build && npm start
+    # or
+    yarn build && yarn start
     ```
 
 ## Pages

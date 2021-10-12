@@ -3,10 +3,10 @@ module.exports = {
   async redirects() {
     return [
       {
-        source: '/',
-        destination: '/overview',
+        source: "/",
+        destination: "/overview",
         permanent: true,
       },
-    ]
+    ];
   },
-}
+};

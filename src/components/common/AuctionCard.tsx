@@ -1,12 +1,18 @@
 import Image from "next/image";
 
+// icons
 const file = "/assets/icons/file.svg";
+const file2 = "/assets/icons/AuctionCard/file.svg";
 const book = "/assets/icons/book.svg";
+const book2 = "/assets/icons/AuctionCard/book.svg";
 const copy = "/assets/icons/copy.svg";
 const spoon = "/assets/icons/spoon.svg";
 const globe = "/assets/icons/globe.svg";
+const globe2 = "/assets/icons/AuctionCard/globe.svg";
 const github = "/assets/icons/github.svg";
+const github2 = "/assets/icons/AuctionCard/github.svg";
 const twitter = "/assets/icons/twitter.svg";
+const twitter2 = "/assets/icons/AuctionCard/twitter.svg";
 
 const AuctionCard = ({ data }: any) => {
   const {
@@ -28,8 +34,13 @@ const AuctionCard = ({ data }: any) => {
   return (
     <>
       <div
-        style={{ border: "1px solid gray", background: "#121319" }}
-        className="pb-5 m-1 text-white rounded-lg"
+        // style={{ border: "1px solid gray", background: "#121319" }}
+        style={{
+          border: "1px solid gray",
+          background: "var(--card-background)",
+          color: "var(--card-color)",
+        }}
+        className="pb-5 m-1 rounded-lg"
       >
         <div>
           <Image
@@ -59,7 +70,7 @@ const AuctionCard = ({ data }: any) => {
                 className="py-1 px-3 text-xs rounded-full"
                 style={{ background: "#F94FA2" }}
               >
-                View Aucion
+                View Auction
               </button>
             </div>
           </div>

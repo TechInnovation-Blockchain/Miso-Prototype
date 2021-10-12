@@ -1,0 +1,17 @@
+:root {
+  --main-background: #fff;
+  --card-background: #fff;
+  --card-color: #121319;
+  --text-color: #7F7F7F;
+  --text-color-hover: #7F7F7F;
+}
+
+[data-theme="dark"] {
+  --main-background: black;
+  --card-background: #121319;
+  --card-color: #ffff;
+  --text-color: #9F9F9F;
+  --text-color-hover: #7F7F7F;
+}
+
+// color: var(--main-background);

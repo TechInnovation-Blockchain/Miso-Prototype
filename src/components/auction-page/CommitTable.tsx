@@ -55,7 +55,13 @@ const CommitTable = () => {
   return (
     <div
       className="px-6 py-8 shadow-lg font-bold rounded-xl"
-      style={{ boxShadow: "0px 10px 16px 1px grey", marginRight: "1rem" }}
+      style={{
+        marginRight: "1rem",
+        border: "1px solid var(--card-background)",
+        // boxShadow: "0px 10px 16px 1px var(--card-color)",
+        background: "var(--card-background)",
+        color: "var(--card-color)",
+      }}
     >
       <p className="font-bold text-xl">Commitments</p>
       <p className="w-24 rounded-full text-red-400 font-bold mt-3">
@@ -79,7 +85,10 @@ const CommitTable = () => {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <Listbox.Options className="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm">
+              <Listbox.Options
+                className="absolute z-10 mt-1 w-full shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
+                style={{ background: "var(--card-background)" }}
+              >
                 {people.map((person) => (
                   <Listbox.Option
                     key={person.id}
@@ -160,24 +169,35 @@ const CommitTable = () => {
                       className="whitespace-nowrap px-6 py-3 text-left text-l font-bold text-black-500 tracking-wider flex"
                     >
                       Block Number
-                      <img className="pl-2" src={block} alt="" />
+                      {/* <img className="pl-2" src={block} alt="" /> */}
+                      <div className="pl-1">
+                        <Image src={block} alt="block" height={12} width={12} />
+                      </div>
                     </th>
                     {/* <th scope="col" className="relative px-6 py-3">
                         <span className="sr-only">Edit</span>
                       </th> */}
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
+                <tbody className="divide-y divide-gray-200" style={{ background: "var(--card-background)" }}>
                   {currentPosts.map((person) => (
                     <tr key={person.id}>
                       <td className="py-3 whitespace-nowrap">
                         <div className="flex items-center">
                           <div className="flex-shrink-0 h-10 w-10">
-                            <img
+                            {/* <img
                               className="h-10 w-10 rounded-full"
                               src={person.image}
                               alt=""
-                            />
+                            /> */}
+                            <div className="rounded-full">
+                              <Image
+                                src={person.image}
+                                alt="avatar"
+                                height={38}
+                                width={38}
+                              />
+                            </div>
                           </div>
                           <div className="ml-2">
                             <div className="text-sm font-medium text-gray-500">
@@ -215,12 +235,16 @@ const CommitTable = () => {
           </div>
         </div>
       </div>
-      <div className="my-4 w-12/12 flex justify-end">
+      <div className="my-4 w-12/12 flex justify-between">
         <button className="flex border w-44 justify-center items-center rounded-full text-red-400 font-bold p-1">
-          <p>Download CSV</p> <img className="pl-3" src={download} alt="" />
+          {/* <p>Download CSV</p> <img className="pl-3" src={download} alt="" /> */}
+          <p>Download CSV</p>{" "}
+          <div className="pl-3">
+            <Image src={download} alt="download" height={14} width={14} />
+          </div>
         </button>
       </div>
-      <div className="flex justify-between mt-10 w-12/12">
+      <div className="mt-10 w-12/12 flex justify-between">
         <p className="px-1 font-bold text-gray-400">
           Showing {indexOfFirstPost + 1} To{" "}
           {indexOfFirstPost + postsPerPage > dummyData.length
@@ -230,7 +254,8 @@ const CommitTable = () => {
           {Math.max(0, dummyData.length - indexOfLastPost)} Of Entries
         </p>
         <div className="flex">
-          <img src={left} alt="" />
+          {/* <img src={left} alt="" /> */}
+          <Image src={left} alt="left" height={8} width={8} />
           <div className={styles.page__btn}>
             {test.map((item, index) => {
               return (
@@ -247,7 +272,8 @@ const CommitTable = () => {
               );
             })}
           </div>
-          <img src={right} alt="" />
+          {/* <img src={right} alt="" /> */}
+          <Image src={right} alt="right" height={8} width={8} />
         </div>
       </div>
     </div>

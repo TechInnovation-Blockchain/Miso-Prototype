@@ -2,13 +2,14 @@ import Layout from "../src/components/layout";
 import CommitAdd from "../src/components/auction-page/CommitAdd";
 import AuctionCard from "../src/components/common/AuctionCard";
 import CommitTable from "../src/components/auction-page/CommitTable";
+import LiveGraph from "../src/components/auction-page/LiveGraph";
 
 // data
 import auctionCardsData from "../src/data/overviewAuctionCards.data";
 
 const AuctionPage = () => {
   return (
-    <Layout>
+    <Layout title="Auction Page">
       <div style={{ display: "flex" }}>
         <section>
           <div style={{ width: "530px" }}>
@@ -17,11 +18,14 @@ const AuctionPage = () => {
         </section>
 
         <section className="w-full flex flex-col items-center">
+          <LiveGraph />
           <CommitAdd />
         </section>
       </div>
 
+      <div className="py-4">
       <CommitTable />
+      </div>
     </Layout>
   );
 };

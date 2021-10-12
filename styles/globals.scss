@@ -1,10 +1,131 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+// @import './theme.scss';
 
 body {
+  background: var(--main-background);
   // background: #121319;
+  box-shadow: 0px 4px 15px 4px rgba(0, 0, 0, 0.15);
 }
+
+.nav__search {
+  display: none;
+  padding: 12px 24px;
+
+  position: static;
+  width: 217px;
+  height: 48px;
+  left: 489px;
+  top: 0px;
+
+  // background: rgba(18, 19, 25, 0.75);
+  background: var(--card-background);
+  border: 2px solid #7f7f7f;
+  box-sizing: border-box;
+  /* soft dropshadow */
+
+  // box-shadow: 0px 4px 15px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 29px -8px var(--text-color);
+  border-radius: 1000px;
+
+  /* Inside Auto Layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 15px;
+
+  @media (min-width: 1024px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+.nav__searchMobile {
+  display: none;
+
+  @media (max-width: 1023px) {
+    display: flex;
+  }
+}
+.nav__currencyName {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+
+  position: static;
+  width: 143px;
+  height: 48px;
+  left: 0px;
+  top: 0px;
+
+  // background: rgba(18, 19, 25, 0.75);
+  background: var(--card-background);
+  border: 1px solid var(--card-background);
+  // color: var(--card-color);
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  /* soft dropshadow */
+
+  box-shadow: 0px 4px 15px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 999999px;
+
+  /* Inside Auto Layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 15px;
+}
+.nav__profileBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+
+  position: static;
+  width: 160px;
+  height: 48px;
+  left: 167px;
+  top: 0px;
+
+  // background: #ffffff;
+  background: var(--card-color);
+  color: var(--card-background);
+  border-radius: 999999px;
+
+  /* Inside Auto Layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 0px 15px;
+}
+.nav__themeBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+
+  position: static;
+  // width: 160px;
+  height: 48px;
+  left: 167px;
+  top: 0px;
+
+  /* Inside Auto Layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  // margin: 0px 15px;
+}
+
 /* html,
 body {
   padding: 0;
@@ -21,3 +142,84 @@ a {
 * {
   box-sizing: border-box;
 } */
+
+.marketplaceBtn {
+  display: flex;
+  align-items: center;
+  // background: #121319;
+  background: var(--card-background);
+  // color: var(--card-color);
+  border: 1px solid #7F7F7F;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 15px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 50px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 10px 0px;
+  padding: 1px 20px;
+
+  @media (max-width: 799px) {
+    display: none;
+  }
+}
+
+.sidebarBtn {
+  // background: rgba(255, 255, 255, 0.75);
+  background: var(--card-background);
+  color: var(--card-color);
+  border: 2px solid #e0e0e0;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 15px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  flex: none;
+  margin: 14px 0px;
+  padding: 5px 0px;
+}
+
+.sidebar__childText {
+  color: var(--text-color);
+
+  &:hover {
+    color: var(--text-color-hover);
+  }
+}
+
+a {
+  text-decoration: none !important;
+}
+
+/* Change the white to any color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  // box-shadow: 0 0 0 30px #121319 inset !important;
+  // -webkit-box-shadow: 0 0 0 30px #121319 inset !important;
+
+  box-shadow: 0 0 0 30px var(--card-background) inset !important;
+  -webkit-box-shadow: 0 0 0 30px var(--card-background) inset !important;
+}
+
+/* Change text in autofill input*/
+input:-webkit-autofill {
+  // -webkit-text-fill-color: white !important;
+  -webkit-text-fill-color: var(--card-color) !important;
+}
+
+input {
+  // color: white;
+  color: var(--card-color)
+}
+
+.transformDiv {
+  // transform: skewY(-13deg);
+  transform: rotate(-10deg);
+  /* height: 45px; */
+  padding-top: 20px;
+  margin-top: 60px;
+
+  margin-left: -11px;
+  margin-right: -9px;
+}
+

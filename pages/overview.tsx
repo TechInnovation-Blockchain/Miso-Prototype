@@ -19,7 +19,7 @@ const Overview = () => {
   // console.log(overviewData)
 
   return (
-    <Layout>
+    <Layout title="Overview">
       <div style={{ display: "flex" }}>
         <section>
           {auctionCardsData?.map((item: any) => (

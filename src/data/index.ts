@@ -1,5 +1,5 @@
 import overviewAuctionCards from "./overviewAuctionCards.data";
-import navigationItems from "./navigationItems.data";
 import commitTable from "./commitTable.data";
+import salesDetailsCard from "./salesDetailsCard.data";
 
-export { overviewAuctionCards, navigationItems, commitTable };
+export { overviewAuctionCards, commitTable, salesDetailsCard };

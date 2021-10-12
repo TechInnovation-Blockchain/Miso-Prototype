@@ -1,25 +1,25 @@
 import Link from "next/link";
 import { Disclosure } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/solid";
+import { ItemProps } from "../../interfaces";
 
 const SidebarBtn = () => {
   return (
     <div className="w-full px-2">
-      <div className="">
         <Item
           title="Marketplace"
           content={[
             {
               title: "Live Auctions",
-              url: "/",
+              url: "/live-auctions",
             },
             {
               title: "Upcoming Sales",
-              url: "/",
+              url: "#",
             },
             {
               title: "Past Sales",
-              url: "/",
+              url: "/past-sales",
             },
           ]}
         />
@@ -30,32 +30,8 @@ const SidebarBtn = () => {
           <Item title="Factory" />
         </Link>
       </div>
-
-      <style scoped>{`
-        .sidebarBtn {
-          background: rgba(255, 255, 255, 0.75);
-          border: 1px solid #e0e0e0;
-          box-sizing: border-box;
-          box-shadow: 0px 4px 15px 4px rgba(0, 0, 0, 0.15);
-          border-radius: 25px;
-          flex: none;
-          margin: 14px 0px;
-          padding: 5px 0px;
-        }
-      `}</style>
-    </div>
   );
 };
-
-interface ContentItems {
-  title: string;
-  url: string;
-}
-
-interface ItemProps {
-  title: string;
-  content?: ContentItems[];
-}
 
 const Item = ({ title, content }: ItemProps) => {
   return (
@@ -77,7 +53,7 @@ const Item = ({ title, content }: ItemProps) => {
                   <a
                     key={index}
                     href={item.url}
-                    className="block text-left text-gray-600 hover:text-gray-700 hover:underline"
+                    className="block text-left hover:underline sidebar__childText"
                   >
                     {item.title}
                   </a>

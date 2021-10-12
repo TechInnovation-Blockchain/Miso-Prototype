@@ -1,156 +1,34 @@
 import Image from "next/image";
 import { LineChart, Line, ResponsiveContainer } from "recharts";
+import { ChartProps } from "../../interfaces";
 
+// data
+import { salesDetailsCard } from "../../data";
+
+// images
 const spoon = "/assets/past-sales/spoon.svg";
 const dot = "/assets/past-sales/dot.png";
 const showPublic = "/assets/past-sales/public.svg";
 const showPrivate = "/assets/past-sales/private.svg";
 
-const chartData = [
-  {
-    name: "Page A",
-    uv: 2000,
-    pv: 2000,
-    amt: 2000,
-  },
-  {
-    name: "Page B",
-    uv: 3000,
-    pv: 3000,
-    amt: 3000,
-  },
-  {
-    name: "Page C",
-    uv: 4000,
-    pv: 4000,
-    amt: 4000,
-  },
-  {
-    name: "Page D",
-    uv: 5000,
-    pv: 5000,
-    amt: 5000,
-  },
-  {
-    name: "Page E",
-    uv: 6000,
-    pv: 6000,
-    amt: 6000,
-  },
-  {
-    name: "Page F",
-    uv: 7000,
-    pv: 7000,
-    amt: 8000,
-  },
-  {
-    name: "Page G",
-    uv: 9000,
-    pv: 9000,
-    amt: 9000,
-  },
-];
-
-const products = [
-  {
-    id: 1,
-    title: "Sake (SAK3)",
-    show: "Public",
-    currency: "SUSHI",
-    startingPriceValue: 88000,
-    totalRaised: 245740,
-    AuctionTokenPrice: 1228.7,
-    reservePrice: 88.8,
-  },
-  {
-    id: 2,
-    title: "Manifold Finance (Fold)",
-    show: "Private",
-    currency: "SUSHI",
-    startingPriceValue: 1380,
-    totalRaised: 10839,
-    AuctionTokenPrice: 541.95,
-  },
-  {
-    id: 3,
-    title: "Sunder Governance Token (Sunder)",
-    show: "Public",
-    currency: "USDC",
-    startingPriceValue: 3,
-    totalRaised: 2486300,
-    AuctionTokenPrice: 0.497326,
-    reservePrice: 0.2,
-  },
-  {
-    id: 4,
-    title: "I Bet You (IBY)",
-    show: "Public",
-    currency: "SUSHI",
-    minRaiseValue: 1380,
-    totalRaised: 10839,
-    AuctionTokenPrice: 541.95,
-  },
-  {
-    id: 5,
-    title: "Volatility Protocol Token (VOL)",
-    show: "Public",
-    currency: "ETH",
-    minRaiseValue: 88000,
-    totalRaised: 245740,
-    AuctionTokenPrice: 1228.7,
-    reservePrice: 88.8,
-  },
-  {
-    id: 6,
-    title: "Attrace (ATTR)",
-    show: "Private",
-    currency: "SUSHI",
-    minRaiseValue: 1380,
-    totalRaised: 10839,
-    AuctionTokenPrice: 541.95,
-    // reservePrice: 0.2
-  },
-  {
-    id: 7,
-    title: "Non-Fungible Bible (PAGE)",
-    show: "Public",
-    currency: "SUSHI ",
-    minRaiseValue: 1380,
-    totalRaised: 10839,
-    AuctionTokenPrice: 541.95,
-  },
-  {
-    id: 8,
-    title: "Rainbow Token (RNBW)",
-    show: "Public",
-    currency: "SUSHI",
-    minRaiseValue: 88000,
-    totalRaised: 245740,
-    AuctionTokenPrice: 1228.7,
-    reservePrice: 88.8,
-  },
-  {
-    id: 9,
-    title: "ITrust Governance Token (SITG)",
-    show: "Private",
-    currency: "SUSHI",
-    minRaiseValue: 1380,
-    totalRaised: 10839,
-    AuctionTokenPrice: 541.95,
-  },
-];
-
 const SalesDetailsCard = () => {
+  const { chartData, products } = salesDetailsCard;
+
   return (
-    <div className="mt-6 bg-black text-gray-500 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+    <div className="mt-6 text-gray-500 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
       {products.map((product) => (
         <div
           key={product.id}
+          // style={{ background: "#121319" }}
+          style={{ background: "var(--card-background)" }}
           className="p-4 font-bold group relative border border-gray-600 rounded-xl"
         >
           <div className="flex mb-8">
             <div className="w-2/4 text-left">
-              <h3 className="mb-3 text-white text-xl font-bold">
+              <h3
+                className="mb-3 text-xl font-bold"
+                style={{ color: "var(--card-color)" }}
+              >
                 {product.title}
               </h3>
               <p className="float-left mr-2">{product.show}</p>
@@ -174,7 +52,10 @@ const SalesDetailsCard = () => {
             </div>
             <div className="w-2/4 text-right">
               <div className="flex float-right items-center mb-3">
-                <h5 className="mr-2 text-white font-bold ">
+                <h5
+                  className="mr-2 font-bold"
+                  style={{ color: "var(--card-color)" }}
+                >
                   Auction Ended
                 </h5>
                 <Image
@@ -224,7 +105,7 @@ const SalesDetailsCard = () => {
               </div>
             </div>
             <div>
-              <Chart />
+              <Chart chartData={chartData} />
             </div>
             <div className="flex">
               <div className="w-2/4 text-left">
@@ -256,11 +137,10 @@ const SalesDetailsCard = () => {
         </div>
       ))}
     </div>
-    // </div>
   );
 };
 
-const Chart = () => {
+const Chart = ({ chartData }: ChartProps) => {
   return (
     <ResponsiveContainer width="100%" aspect={3}>
       <LineChart width={300} height={100} data={chartData}>

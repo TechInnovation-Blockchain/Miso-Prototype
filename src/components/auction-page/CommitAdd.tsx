@@ -4,7 +4,14 @@ const CommitAdd = () => {
   return (
     <div
       className="p-6 shadow-lg font-bold rounded-xl"
-      style={{ width: "533px", height: "274px" }}
+      style={{
+        width: "533px",
+        height: "274px",
+        marginTop: "1rem",
+        border: "1px solid var(--card-background)",
+        background: "var(--card-background)",
+        color: "var(--card-color)",
+      }}
     >
       <div className="flex">
         <div className="w-2/4 flex">
@@ -59,7 +66,7 @@ const CommitAdd = () => {
         <div className="my-4 font-bold border border-gray-400 rounded-full">
           <input
             className="p-0.5 pl-3 w-9/12 rounded-full font-bold"
-            value="7.25 ETH"
+            defaultValue="7.25 ETH"
             type="text"
           />
           <button
