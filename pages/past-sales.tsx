@@ -4,7 +4,9 @@ import Layout from "../src/components/layout";
 const PastSales = () => {
   return (
     <Layout title="Past Sales">
-      <SalesDetailsCard />
+      <div style={{ margin: "1rem" }}>
+        <SalesDetailsCard />
+      </div>
     </Layout>
   );
 };

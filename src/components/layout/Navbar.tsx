@@ -19,7 +19,8 @@ const Navbar = ({ setOpen }: NavbarProps) => {
             {/* toggle */}
             <button
               type="button"
-              className="bg-white p-2 ml-4 rounded-md text-gray-400 lg:hidden"
+              className=" p-2 ml-4 rounded-md text-gray-400 lg:hidden"
+              style={{ background: "var(--card-background)" }}
               onClick={() => setOpen(true)}
             >
               <span className="sr-only">Open menu</span>
@@ -82,7 +83,12 @@ const Navbar = ({ setOpen }: NavbarProps) => {
               </div>
               <div className="nav__profileBtn">
                 <div style={{ marginRight: "10px" }}>
-                  <p style={{ color: "var(--card-background)", fontSize: "14px" }}>
+                  <p
+                    style={{
+                      color: "var(--card-background)",
+                      fontSize: "14px",
+                    }}
+                  >
                     0.3223 ETH
                   </p>
                   <p style={{ fontSize: "10px" }}>0x47Ea...22B2</p>

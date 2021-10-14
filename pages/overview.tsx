@@ -20,7 +20,7 @@ const Overview = () => {
 
   return (
     <Layout title="Overview">
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", marginLeft: '2rem' }}>
         <section>
           {auctionCardsData?.map((item: any) => (
             <div key={item.id} style={{ width: "550px" }}>

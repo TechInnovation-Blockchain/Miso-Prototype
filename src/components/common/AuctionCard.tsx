@@ -16,6 +16,7 @@ const twitter2 = "/assets/icons/AuctionCard/twitter.svg";
 
 const AuctionCard = ({ data }: any) => {
   const {
+    id,
     image,
     subImage,
     title,
@@ -24,21 +25,26 @@ const AuctionCard = ({ data }: any) => {
     time,
     amount,
     description,
+    subDescription,
     auctionProgress,
-    raised,
     progress,
+    raised,
     remainingTimeTitle,
     remainingTime,
+    countdown,
+    countdownValue,
+    contract,
+    contractAddress,
     token,
   } = data;
   return (
     <>
       <div
-        // style={{ border: "1px solid gray", background: "#121319" }}
         style={{
-          border: "1px solid gray",
+          border: "var(--border)",
           background: "var(--card-background)",
           color: "var(--card-color)",
+          boxShadow: "var(--box-shadow)",
         }}
         className="pb-5 m-1 rounded-lg"
       >
@@ -51,7 +57,7 @@ const AuctionCard = ({ data }: any) => {
             width="650"
           />
         </div>
-        <div>
+        <div style={{ marginTop: "-2rem", marginLeft: "1rem" }}>
           <Image
             className="-mt-6 ml-4"
             src={subImage}
@@ -79,65 +85,37 @@ const AuctionCard = ({ data }: any) => {
           </div>
           <div className="flex">
             <div className="w-3/12 text-left flex test-xs">
-              <small>{auction}</small>
-              <Image
-                className="ml-1.5"
-                src={spoon}
-                alt="spoon"
-                height={15}
-                width={15}
-              />
+              <small style={{ fontSize: "12px" }}>{auction}</small>
+              <div className="ml-1.5">
+                <Image src={spoon} alt="spoon" height={15} width={15} />
+              </div>
             </div>
             <div className="w-3/6 text-center test-xs">
-              <small>{time}</small>
+              <small style={{ fontSize: "12px" }}>{time}</small>
             </div>
             <div className="w-3/12 text-right test-xs">
-              <small>{amount}</small>
+              <small style={{ fontSize: "12px" }}>{amount}</small>
             </div>
           </div>
           <div className="mt-2.5 mb-3.5 text-gray-500 text-left">
-            <small className="test-xs">{description}</small>
+            <small style={{ fontSize: "12px" }}>{description}</small>
           </div>
+          {subDescription && (
+            <div className="mt-2.5 mb-3.5 text-left">
+              <small style={{ fontSize: "12px", color: "#f945a2" }}>
+                {subDescription}
+              </small>
+            </div>
+          )}
           <div className="flex">
-            <Image
-              className="mr-1.5"
-              src={globe}
-              alt="globe"
-              height={12}
-              width={12}
-            />
-            <Image
-              className="mr-1.5"
-              src={file}
-              alt="file"
-              height={12}
-              width={12}
-            />
-            <Image
-              className="mr-1.5"
-              src={twitter}
-              alt="twitter"
-              height={12}
-              width={12}
-            />
-            <Image
-              className="mr-1.5"
-              src={github}
-              alt="github"
-              height={12}
-              width={12}
-            />
-            <Image
-              className="mr-1.5"
-              src={book}
-              alt="book"
-              height={12}
-              width={12}
-            />
+            <Icons icons={[globe, file, twitter, github, book]} />
           </div>
           <div className="flex mt-2.5">
             <div className="w-2/5 text-left">
-              <small className="text-gray-500">{auctionProgress}</small>
+              <small className="text-gray-500">
+                {progress ? "Auction Progress" : "Countdown"}
+              </small>
+              <br />
               {progress && (
                 <div style={{ width: "70%" }}>
                   <div
@@ -155,26 +133,44 @@ const AuctionCard = ({ data }: any) => {
                   </div>
                 </div>
               )}
-              <small>{raised}</small>
+              <small style={{ fontSize: "12px" }}>{raised}</small>
             </div>
             <div className="w-1/4 text-center">
               <div className="text-left">
                 <small className="text-gray-500">{remainingTimeTitle}</small>
                 <br />
-                <small>{remainingTime}</small>
+                <small style={{ fontSize: "12px" }}>{remainingTime}</small>
               </div>
             </div>
             <div className="w-2/6 text-right">
               <small className="text-gray-500">Token</small>
               <br />
               <div className="flex justify-end">
-                <small>{token}</small>
-                <Image src={copy} alt="copy" height={12} width={12} />
+                <small style={{ fontSize: "12px" }}>{token}</small>
+                <div className="ml-1.5">
+                  <Image src={copy} alt="copy" height={12} width={12} />
+                </div>
               </div>
             </div>
           </div>
         </section>
       </div>
+    </>
+  );
+};
+
+interface IconsProps {
+  icons: any;
+}
+
+const Icons = ({ icons }: IconsProps) => {
+  return (
+    <>
+      {icons?.map((icon: any) => (
+        <div className="mr-1.5" key={icon}>
+          <Image src={icon} alt={icon} height={12} width={12} />
+        </div>
+      ))}
     </>
   );
 };

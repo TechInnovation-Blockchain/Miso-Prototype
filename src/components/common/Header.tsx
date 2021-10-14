@@ -31,7 +31,7 @@ const Header = () => {
           Auction is Live{" "}
           <Image
             src="/assets/icons/green-dot.svg"
-            alt=""
+            alt="dot"
             height={20}
             width={20}
           />

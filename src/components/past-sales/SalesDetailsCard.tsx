@@ -15,7 +15,7 @@ const SalesDetailsCard = () => {
   const { chartData, products } = salesDetailsCard;
 
   return (
-    <div className="mt-6 text-gray-500 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+    <div className="mt-6 text-gray-500 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:gap-x-4">
       {products.map((product) => (
         <div
           key={product.id}
@@ -26,19 +26,21 @@ const SalesDetailsCard = () => {
           <div className="flex mb-8">
             <div className="w-2/4 text-left">
               <h3
-                className="mb-3 text-xl font-bold"
-                style={{ color: "var(--card-color)" }}
+                className="mb-3 font-bold"
+                style={{ color: "var(--card-color)", fontSize: "18px" }}
               >
                 {product.title}
               </h3>
-              <p className="float-left mr-2">{product.show}</p>
+              <p className="float-left mr-2" style={{ fontSize: "14px" }}>
+                {product.show}
+              </p>
               {product.show === "Public" ? (
                 <Image
                   className="mt-4"
                   src={showPublic}
                   alt="show"
-                  width="15"
-                  height="15"
+                  width={15}
+                  height={15}
                 />
               ) : (
                 <Image
@@ -50,11 +52,11 @@ const SalesDetailsCard = () => {
                 />
               )}
             </div>
-            <div className="w-2/4 text-right">
+            <div className="w-2/4 text-right flex flex-col items-end">
               <div className="flex float-right items-center mb-3">
                 <h5
                   className="mr-2 font-bold"
-                  style={{ color: "var(--card-color)" }}
+                  style={{ color: "var(--card-color)", fontSize: "14px" }}
                 >
                   Auction Ended
                 </h5>
@@ -67,7 +69,9 @@ const SalesDetailsCard = () => {
                 />
               </div>
               <div className="flex float-right">
-                <p className="mr-2 float-left">Batch auction</p>
+                <p className="mr-2 float-left" style={{ fontSize: "14px" }}>
+                  Batch auction
+                </p>
                 <Image
                   className="float-right"
                   src={spoon}
@@ -80,7 +84,7 @@ const SalesDetailsCard = () => {
           </div>
           <div className="pl-3 pb-3 border-l border-b border-gray-600">
             <div className="flex">
-              <div className="w-2/4 text-left">
+              <div className="w-2/4 text-left" style={{ fontSize: "14px" }}>
                 {product.startingPriceValue ? (
                   <>
                     <p>Starting Price</p>
@@ -97,7 +101,7 @@ const SalesDetailsCard = () => {
                   </>
                 )}
               </div>
-              <div className="w-2/4 text-right">
+              <div className="w-2/4 text-right" style={{ fontSize: "14px" }}>
                 <p>Total Price</p>
                 <p style={{ color: "#524BB8" }}>
                   {product.totalRaised} {product.currency}
@@ -108,13 +112,13 @@ const SalesDetailsCard = () => {
               <Chart chartData={chartData} />
             </div>
             <div className="flex">
-              <div className="w-2/4 text-left">
+              <div className="w-2/4 text-left" style={{ fontSize: "14px" }}>
                 <p>Auction Token Price</p>
                 <p style={{ color: "#524BB8" }}>
                   {product.AuctionTokenPrice} {product.currency}
                 </p>
               </div>
-              <div className="w-2/4 text-right">
+              <div className="w-2/4 text-right" style={{ fontSize: "14px" }}>
                 {product.reservePrice && (
                   <>
                     <p>Reserve Price</p>
@@ -126,12 +130,12 @@ const SalesDetailsCard = () => {
               </div>
             </div>
           </div>
-          <div className="flex font-normal">
+          <div className="flex font-normal" style={{ fontSize: "12px" }}>
             <div className="w-2/4 text-left">
               <p>Start</p>
             </div>
             <div className="w-2/4 text-right">
-              <small>End</small>
+              <p>End</p>
             </div>
           </div>
         </div>
