@@ -218,6 +218,10 @@ input {
   color: var(--card-color)
 }
 
+textarea:focus, input:focus{
+  outline: none;
+}
+
 .transformDiv {
   // transform: skewY(-13deg);
   transform: rotate(-10deg);
@@ -229,3 +233,8 @@ input {
   margin-right: -9px;
 }
 
+.auction__page {
+  @media (max-width: 799px) {
+    display: none;
+  }
+}

@@ -55,7 +55,7 @@ const Header = () => {
           font-size: 11px;
           display: flex;
 
-          border: 2px solid var(--card-color);
+          border: 2px solid white;
           box-sizing: border-box;
           border-radius: 50px;
         }

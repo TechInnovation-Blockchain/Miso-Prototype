@@ -16,6 +16,7 @@ const auctionCardsData = [
     remainingTimeTitle: "Time  Remaining",
     remainingTime: "04d: 05h: 15m: 42s",
     token: "0x749B...2B05DA4",
+    active: true,
   },
   {
     id: "2",
@@ -34,6 +35,7 @@ const auctionCardsData = [
     contract: "Contract",
     contractAddress: "0x15C5...E3BC3E6AD1",
     token: "0x749B...2B05DA4",
+    active: false,
   },
   {
     id: "3",
@@ -51,6 +53,7 @@ const auctionCardsData = [
     contract: "Contract",
     contractAddress: "0x15C5...E3BC3E6AD1",
     token: "0x749B...2B05DA4",
+    active: false,
   },
 ];
 

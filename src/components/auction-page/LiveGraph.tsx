@@ -8,7 +8,7 @@ const LiveGraph = () => {
       className="p-6 shadow-lg font-bold rounded-xl"
       style={{
         width: "533px",
-        marginTop: ".5rem",
+        // marginTop: ".5rem",
         border: "1px solid var(--card-background)",
         background: "var(--card-background)",
         color: "var(--card-color)",

@@ -7,7 +7,7 @@ const CommitAdd = () => {
       style={{
         width: "533px",
         height: "274px",
-        marginTop: "1rem",
+        // marginTop: "1rem",
         border: "1px solid var(--card-background)",
         background: "var(--card-background)",
         color: "var(--card-color)",
@@ -66,24 +66,60 @@ const CommitAdd = () => {
         <div className="my-4 font-bold border border-gray-400 rounded-full">
           <input
             className="p-0.5 pl-3 w-9/12 rounded-full font-bold"
-            defaultValue="7.25 ETH"
+            placeholder="7.25 ETH"
             type="text"
+            style={{
+              background: "transparent",
+              border: "none",
+              color: "var(--card-color)",
+            }}
           />
           <button
-            className="px-6 p-1 -mt-0.5 -mr-0.5 shadow-2xl float-right font-bold rounded-full text-white"
-            style={{ background: "#F94FA2" }}
+            // className="px-6 p-1 -mt-0.5 -mr-0.5 shadow-2xl float-right font-bold rounded-full text-white"
+            className="shadow-2xl float-right font-bold rounded-full text-white"
+            style={{
+              background: "#F94FA2",
+              height: "30px",
+              width: "110px",
+              marginTop: "-1px",
+              marginRight: "-1px",
+              boxShadow: "0px 0px 10px #F94FA2",
+            }}
           >
             Commit
           </button>
         </div>
       </div>
       <div className="flex">
-        <Image
+        {/* <Image
           src="/assets/icons/clock.svg"
           alt="time"
           width={25}
           height={25}
-        />
+        /> */}
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+            stroke="var(--card-color)"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M12 6V12L16 14"
+            stroke="var(--card-color)"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+
         <p className="ml-2 font-bold">03d: 15h: 15m: 42s </p>
       </div>
     </div>

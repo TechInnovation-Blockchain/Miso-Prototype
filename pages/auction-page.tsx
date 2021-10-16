@@ -12,15 +12,16 @@ const AuctionPage = () => {
   return (
     <Layout title="Auction Page">
       <Header />
-      
-      <div style={{ display: "flex" }}>
+
+      <div className="flex justify-between auction__page">
         <section>
           <div style={{ width: "530px" }}>
             <AuctionCard data={auctionCardsData[0]} />
           </div>
         </section>
 
-        <section className="w-full flex flex-col items-center">
+        {/* <section className="w-full flex flex-col items-center"> */}
+        <section className="flex flex-col justify-between" style={{ marginRight: "1rem" }}>
           <LiveGraph />
           <CommitAdd />
         </section>

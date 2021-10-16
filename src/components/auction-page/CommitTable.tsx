@@ -64,10 +64,16 @@ const CommitTable = () => {
       }}
     >
       <p className="font-bold text-xl">Commitments</p>
-      <p className="w-24 rounded-full text-red-400 font-bold mt-3">
+      <p
+        className="w-24 rounded-full font-bold mt-3"
+        style={{ color: "#F94FA2" }}
+      >
         <Listbox value={postsPerPage} onChange={setPostsPerPage}>
           <div className="mt-1 relative">
-            <Listbox.Button className="relative w-full bg-white border border-gray-300 rounded-full shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+            <Listbox.Button
+              style={{ background: "var(--card-background)" }}
+              className="relative w-full border border-gray-300 rounded-full shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            >
               <span className="flex items-center">
                 <span className="ml-4 block truncate">{postsPerPage}</span>
               </span>
@@ -86,7 +92,7 @@ const CommitTable = () => {
               leaveTo="opacity-0"
             >
               <Listbox.Options
-                className="absolute z-10 mt-1 w-full shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
+                className="absolute z-10 mt-1 w-full shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
                 style={{ background: "var(--card-background)" }}
               >
                 {people.map((person) => (
@@ -94,7 +100,9 @@ const CommitTable = () => {
                     key={person.id}
                     className={({ active }) =>
                       classNames(
-                        active ? "text-white bg-indigo-600" : "text-gray-900",
+                        active
+                          ? "text-white bg-indigo-600"
+                          : "var(--card-color)",
                         "cursor-default select-none relative py-2 pl-3 pr-9"
                       )
                     }
@@ -112,17 +120,6 @@ const CommitTable = () => {
                             {person.number}
                           </span>
                         </div>
-
-                        {/* {selected ? (
-                            <span
-                              className={classNames(
-                                active ? "text-white" : "text-indigo-600",
-                                "absolute inset-y-0 right-0 flex items-center pr-4"
-                              )}
-                            >
-                              <CheckIcon className="h-5 w-5" aria-hidden="true" />
-                            </span>
-                          ) : null} */}
                       </>
                     )}
                   </Listbox.Option>
@@ -179,7 +176,10 @@ const CommitTable = () => {
                       </th> */}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-200" style={{ background: "var(--card-background)" }}>
+                <tbody
+                  className="divide-y divide-gray-200"
+                  style={{ background: "var(--card-background)" }}
+                >
                   {currentPosts.map((person) => (
                     <tr key={person.id}>
                       <td className="py-3 whitespace-nowrap">
@@ -235,16 +235,20 @@ const CommitTable = () => {
           </div>
         </div>
       </div>
-      <div className="my-4 w-12/12 flex justify-between">
-        <button className="flex border w-44 justify-center items-center rounded-full text-red-400 font-bold p-1">
-          {/* <p>Download CSV</p> <img className="pl-3" src={download} alt="" /> */}
+
+      <section className="my-4 flex justify-end">
+        <button
+          className="flex border w-44 justify-center items-center rounded-full font-bold p-1"
+          style={{ color: "#f945a2" }}
+        >
           <p>Download CSV</p>{" "}
           <div className="pl-3">
             <Image src={download} alt="download" height={14} width={14} />
           </div>
         </button>
-      </div>
-      <div className="mt-10 w-12/12 flex justify-between">
+      </section>
+
+      <section className="flex justify-between">
         <p className="px-1 font-bold text-gray-400">
           Showing {indexOfFirstPost + 1} To{" "}
           {indexOfFirstPost + postsPerPage > dummyData.length
@@ -254,7 +258,6 @@ const CommitTable = () => {
           {Math.max(0, dummyData.length - indexOfLastPost)} Of Entries
         </p>
         <div className="flex">
-          {/* <img src={left} alt="" /> */}
           <Image src={left} alt="left" height={8} width={8} />
           <div className={styles.page__btn}>
             {test.map((item, index) => {
@@ -272,10 +275,9 @@ const CommitTable = () => {
               );
             })}
           </div>
-          {/* <img src={right} alt="" /> */}
           <Image src={right} alt="right" height={8} width={8} />
         </div>
-      </div>
+      </section>
     </div>
   );
 };

@@ -1,18 +1,15 @@
 import Image from "next/image";
+import {
+  GlobeIcon,
+  FileIcon,
+  TwitterIcon,
+  GithubIcon,
+  BookIcon,
+} from "../../icons";
 
 // icons
-const file = "/assets/icons/file.svg";
-const file2 = "/assets/icons/AuctionCard/file.svg";
-const book = "/assets/icons/book.svg";
-const book2 = "/assets/icons/AuctionCard/book.svg";
 const copy = "/assets/icons/copy.svg";
 const spoon = "/assets/icons/spoon.svg";
-const globe = "/assets/icons/globe.svg";
-const globe2 = "/assets/icons/AuctionCard/globe.svg";
-const github = "/assets/icons/github.svg";
-const github2 = "/assets/icons/AuctionCard/github.svg";
-const twitter = "/assets/icons/twitter.svg";
-const twitter2 = "/assets/icons/AuctionCard/twitter.svg";
 
 const AuctionCard = ({ data }: any) => {
   const {
@@ -31,12 +28,14 @@ const AuctionCard = ({ data }: any) => {
     raised,
     remainingTimeTitle,
     remainingTime,
-    countdown,
+    // countdown,
     countdownValue,
     contract,
     contractAddress,
     token,
+    active,
   } = data;
+
   return (
     <>
       <div
@@ -53,8 +52,8 @@ const AuctionCard = ({ data }: any) => {
             className="w-full rounded-t-lg"
             src={image}
             alt="wrapped_ncg"
-            height="300"
-            width="650"
+            height={336}
+            width={536}
           />
         </div>
         <div style={{ marginTop: "-2rem", marginLeft: "1rem" }}>
@@ -67,18 +66,35 @@ const AuctionCard = ({ data }: any) => {
           />
         </div>
         <section className="ml-4 mr-4 ">
-          <div className="flex">
-            <div className="w-9/12 text-left">
-              <h1 className="text-xl font-semibold">{title}</h1>
-            </div>
-            <div className="text-right">
-              <button
-                className="py-1 px-3 text-xs rounded-full"
-                style={{ background: "#F94FA2" }}
-              >
-                View Auction
-              </button>
-            </div>
+          <div className="flex justify-between">
+            <h1 className="text-xl font-semibold">
+              {title}
+              {active ? (
+                <Image
+                  src="/assets/icons/green-dot.svg"
+                  alt="green-dot"
+                  height={20}
+                  width={20}
+                />
+              ) : (
+                <Image
+                  src="/assets/icons/brown-dot.svg"
+                  alt="brown-dot"
+                  height={20}
+                  width={20}
+                />
+              )}
+            </h1>
+            <button
+              className="py-1.5 px-4 text-xs rounded-full"
+              style={{
+                background: active ? "#F94FA2" : "#000",
+                boxShadow: active ? "0px 0px 10px #F94FA2" : "",
+                color: "#fff",
+              }}
+            >
+              View Auction
+            </button>
           </div>
           <div className=" text-left">
             <small className="text-xs text-gray-500">{rate}</small>
@@ -108,7 +124,18 @@ const AuctionCard = ({ data }: any) => {
             </div>
           )}
           <div className="flex">
-            <Icons icons={[globe, file, twitter, github, book]} />
+            {/* <Icons icons={[globe, file, twitter, github, book]} /> */}
+            {/* {theme === "light" ? (
+              <Icons icons={[globe, file, twitter, github, book]} />
+              ) : (
+              <Icons icons={[globe2, file2, twitter2, github2, book2]} />
+            )} */}
+
+            <GlobeIcon />
+            <FileIcon />
+            <TwitterIcon />
+            <GithubIcon />
+            <BookIcon />
           </div>
           <div className="flex mt-2.5">
             <div className="w-2/5 text-left">
@@ -117,39 +144,59 @@ const AuctionCard = ({ data }: any) => {
               </small>
               <br />
               {progress && (
-                <div style={{ width: "70%" }}>
-                  <div
-                    className="bg-green-700 rounded-full"
-                    style={{ width: "100%", height: "10px" }}
-                  >
+                <small>
+                  <div style={{ width: "70%" }}>
                     <div
-                      className="rounded-full"
-                      style={{
-                        width: "40%",
-                        background: "#29F079",
-                        height: "10px",
-                      }}
-                    ></div>
+                      className="bg-green-700 rounded-full"
+                      style={{ width: "100%", height: "10px" }}
+                    >
+                      <div
+                        className="rounded-full"
+                        style={{
+                          width: "40%",
+                          background: "#29F079",
+                          boxShadow: "0px 0px 10px #29F079",
+                          height: "10px",
+                        }}
+                      ></div>
+                    </div>
                   </div>
-                </div>
+                </small>
               )}
-              <small style={{ fontSize: "12px" }}>{raised}</small>
+              {countdownValue && (
+                <small
+                  className="flex align-center"
+                  style={{
+                    color: "#29F079",
+                    fontSize: "12px",
+                    textShadow: "0px 0px 10px #29F079",
+                  }}
+                >
+                  {countdownValue}
+                </small>
+              )}
+              {raised && <small style={{ fontSize: "12px" }}>{raised}</small>}
             </div>
             <div className="w-1/4 text-center">
               <div className="text-left">
-                <small className="text-gray-500">{remainingTimeTitle}</small>
-                <br />
-                <small style={{ fontSize: "12px" }}>{remainingTime}</small>
+                <small className="text-gray-500">
+                  {remainingTimeTitle ? remainingTimeTitle : contract}
+                </small>
+                {/* <br /> */}
+                <p style={{ fontSize: "12px" }}>
+                  {remainingTime ? remainingTime : contractAddress}
+                </p>
               </div>
             </div>
             <div className="w-2/6 text-right">
               <small className="text-gray-500">Token</small>
-              <br />
-              <div className="flex justify-end">
+              {/* <br /> */}
+              <div className="flex justify-end items-center">
                 <small style={{ fontSize: "12px" }}>{token}</small>
-                <div className="ml-1.5">
-                  <Image src={copy} alt="copy" height={12} width={12} />
-                </div>
+                {/* <br /> */}
+                <small className="ml-1.5">
+                  <Image src={copy} alt="copy" height={10} width={12} />
+                </small>
               </div>
             </div>
           </div>
@@ -159,20 +206,20 @@ const AuctionCard = ({ data }: any) => {
   );
 };
 
-interface IconsProps {
-  icons: any;
-}
+// interface IconsProps {
+//   icons: any;
+// }
 
-const Icons = ({ icons }: IconsProps) => {
-  return (
-    <>
-      {icons?.map((icon: any) => (
-        <div className="mr-1.5" key={icon}>
-          <Image src={icon} alt={icon} height={12} width={12} />
-        </div>
-      ))}
-    </>
-  );
-};
+// const Icons = ({ icons }: IconsProps) => {
+//   return (
+//     <>
+//       {icons?.map((icon: any) => (
+//         <div className="mr-1.5" key={icon}>
+//           <Image src={icon} alt={icon} height={12} width={12} />
+//         </div>
+//       ))}
+//     </>
+//   );
+// };
 
 export default AuctionCard;
